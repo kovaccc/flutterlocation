@@ -189,11 +189,11 @@
                     }];
 #else
       UIAlertView *alert = [[UIAlertView alloc]
-              initWithTitle:@"Location is Disabled"
-                    message:@"To use location, go to your Settings App > "
-                            @"Privacy > Location Services."
+              initWithTitle:@"Standortdienste deaktiviert"
+                    message:@"Aktivieren Sie bitte die Standortdienste in Ihren Einstellungen, um diese Funktion zu nutzen.  > "
+                            @"(Datenschutz > Ortungsdienste erlauben)"
                    delegate:self
-          cancelButtonTitle:@"Cancel"
+          cancelButtonTitle:@"Abbrechen"
           otherButtonTitles:nil];
       [alert show];
 #endif
