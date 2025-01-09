@@ -190,7 +190,7 @@
 #else
       UIAlertView *alert = [[UIAlertView alloc]
               initWithTitle:@"Standortdienste deaktiviert"
-                    message:@"Aktivieren Sie bitte die Standortdienste in Ihren Einstellungen, um diese Funktion zu nutzen.  > "
+                    message:@"Aktivieren Sie bitte die Standortdienste in Ihren Einstellungen, um diese Funktion zu nutzen."
                             @"(Datenschutz > Ortungsdienste erlauben)"
                    delegate:self
           cancelButtonTitle:@"Abbrechen"
