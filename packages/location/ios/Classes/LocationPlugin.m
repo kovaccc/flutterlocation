@@ -140,6 +140,7 @@
 
     self.flutterResult = result;
     self.locationWanted = YES;
+    self.waitNextLocation = 0;
 
     if ([self isPermissionGranted]) {
       [self.clLocationManager startUpdatingLocation];
@@ -314,7 +315,9 @@
 
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray<CLLocation *> *)locations {
-  if (self.waitNextLocation > 0) {
+  // Skip stale cached locations for stream listeners only.
+  // One-shot getLocation calls return immediately for faster response.
+  if (self.waitNextLocation > 0 && !self.locationWanted) {
     self.waitNextLocation -= 1;
     return;
   }
