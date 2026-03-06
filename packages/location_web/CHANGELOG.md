@@ -1,3 +1,29 @@
+## 6.0.1
+
+- Configure `pausesLocationUpdatesAutomatically` on iOS. Should fix  (#933)
+
+## 6.0.0
+
+- Bump minimum Dart version to 3.6, minimum Flutter version to 3.27 (#952)
+- Bump dependency on `package: web` to `^1.1.0`
+
+## 5.0.5
+
+- Remove dependency on `js`
+
+## 5.0.4
+
+- Bump dependency on `package: web` to `^1.0.0`
+
+## 5.0.3
+
+- Bump dependency on `location_platform_interface` to `^5.0.0`
+
+## 5.0.2
+
+- Remove dependency on `dart:html` in favor of `package:web` to allow complation
+  to WASM (#956)
+
 ## 5.0.1
 
 - Downgraded dependency on js ^0.7.1 to js ^0.6.3 for compatibility with

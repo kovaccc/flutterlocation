@@ -1,6 +1,7 @@
 name: location prepare
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [master, develop]
 
@@ -12,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        flutter-version: ["3.16.x", "3.19.x"]
+        flutter-version: ["3.27.x"]
 
     steps:
       - name: Clone repository
@@ -53,13 +54,19 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 3.16.x
+          flutter-version: ${{ matrix.flutter-version }}
+
+      - name: Set up Melos
+        run: dart pub global activate melos ^3.0.0
+
+      - name: melos bootstrap
+        run: melos bootstrap
 
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: 21
 
       - name: Build example app
         working-directory: packages/location/example
@@ -80,7 +87,13 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 3.16.x
+          flutter-version: ${{ matrix.flutter-version }}
+
+      - name: Set up Melos
+        run: dart pub global activate melos ^3.0.0
+
+      - name: melos bootstrap
+        run: melos bootstrap
 
       - name: Install tools
         run: brew install clang-format
